@@ -11,7 +11,7 @@ import SwiftUI
 struct CityExplorerApp: App {
     var body: some Scene {
         WindowGroup {
-            MapView()
+            HomeView()
         }
     }
 }

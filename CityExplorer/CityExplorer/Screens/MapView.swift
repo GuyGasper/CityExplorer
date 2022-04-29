@@ -1,53 +1,51 @@
 //
-//  ContentView.swift
+//  MapView.swift
 //  CityExplorer
 //
-//  Created by Guy Gasper on 4/25/22.
+//  Created by Guy Gasper on 4/28/22.
 //
 
 import SwiftUI
 import MapKit
-import CoreLocation
 
-struct MapView: View {
-    @State private var region: MKCoordinateRegion = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: MapDefaults.latitude,
-                                       longitude: MapDefaults.longitude),
-        span: MKCoordinateSpan(latitudeDelta: CLLocationDegrees(MapDefaults.zoom),
-                               longitudeDelta: CLLocationDegrees(MapDefaults.zoom)))
-    
-    init() {
-        let coloredAppearance = UINavigationBarAppearance()
-        coloredAppearance.configureWithOpaqueBackground()
-        coloredAppearance.backgroundColor = .systemGray6
-        coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
-        UINavigationBar.appearance().standardAppearance = coloredAppearance
-        UINavigationBar.appearance().compactAppearance = coloredAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
-        UINavigationBar.appearance().tintColor = .white
-    }
-    
-    var body: some View {
-      NavigationView {
-        Map(coordinateRegion: $region)
-            .navigationBarTitleDisplayMode(.inline)
-                      .toolbar {
-                          ToolbarItem(placement: .principal) {
-                              HStack {
-                                  Text("City Explorer").font(.largeTitle)
-                                  Label("SwiftUI Tutorials", systemImage: "map")
-                              }
-                          }
-                      }
-            .ignoresSafeArea()
-      }
-    }
+struct MapView: UIViewRepresentable {
+
+  let region: MKCoordinateRegion
+  let lineCoordinates: [CLLocationCoordinate2D]
+
+  func makeUIView(context: Context) -> MKMapView {
+    let mapView = MKMapView()
+    mapView.delegate = context.coordinator
+    mapView.region = region
+
+    let polyline = MKPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)
+    mapView.addOverlay(polyline)
+
+    return mapView
+  }
+
+  func updateUIView(_ view: MKMapView, context: Context) {}
+
+  func makeCoordinator() -> Coordinator {
+    Coordinator(self)
+  }
+
 }
 
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
-            .previewDevice("iPhone 11")
+class Coordinator: NSObject, MKMapViewDelegate {
+  var parent: MapView
+
+  init(_ parent: MapView) {
+    self.parent = parent
+  }
+
+  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+    if let routePolyline = overlay as? MKPolyline {
+      let renderer = MKPolylineRenderer(polyline: routePolyline)
+      renderer.strokeColor = UIColor.systemBlue
+      renderer.lineWidth = 10
+      return renderer
     }
+    return MKOverlayRenderer()
+  }
 }
