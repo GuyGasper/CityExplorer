@@ -2,7 +2,7 @@
 //  MapDefaults.swift
 //  CityExplorer
 //
-//  Created by My MacPro on 4/26/22.
+//  Created by Guy Gasper on 4/26/22.
 //
 
 import Foundation

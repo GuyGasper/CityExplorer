@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  CityExplorer
 //
 //  Created by Guy Gasper on 4/25/22.
@@ -16,10 +16,10 @@ struct HomeView: View {
         span: MKCoordinateSpan(latitudeDelta: CLLocationDegrees(MapDefaults.zoom),
                                 longitudeDelta: CLLocationDegrees(MapDefaults.zoom)))
 
-      @State private var lineCoordinates = [
-        CLLocationCoordinate2D(latitude: MapDefaults.latitude, longitude: MapDefaults.longitude),
-        CLLocationCoordinate2D(latitude: MapDefaults.latitude + 1, longitude: MapDefaults.longitude - 1)
-      ];
+    @State private var lineCoordinates = [
+        CLLocationCoordinate2D(latitude: 41.870759, longitude: -87.630696),
+        CLLocationCoordinate2D(latitude: 41.872245, longitude: -87.630632)
+    ];
     
     init() {
         let coloredAppearance = UINavigationBarAppearance()
@@ -34,19 +34,19 @@ struct HomeView: View {
     }
 
     var body: some View {
-      NavigationView {
-          MapView(region: region, lineCoordinates: lineCoordinates)
-            .navigationBarTitleDisplayMode(.inline)
-                      .toolbar {
-                          ToolbarItem(placement: .principal) {
-                              HStack {
-                                  Text("City Explorer").font(.largeTitle)
-                                  Label("SwiftUI Tutorials", systemImage: "map")
-                              }
-                          }
-                      }
+        NavigationView {
+            MapView(region: region, lineCoordinates: lineCoordinates)
+                .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            HStack {
+                                Text("City Explorer").font(.largeTitle)
+                                Label("Map", systemImage: "map")
+                            }
+                        }
+                    }
             .ignoresSafeArea()
-      }
+        }
     }
 }
 
