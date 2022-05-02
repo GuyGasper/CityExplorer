@@ -14,8 +14,10 @@
 		35435FF02817ACF600A79CF4 /* CityExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35435FEF2817ACF600A79CF4 /* CityExplorerTests.swift */; };
 		35435FFA2817ACF700A79CF4 /* CityExplorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35435FF92817ACF700A79CF4 /* CityExplorerUITests.swift */; };
 		35435FFC2817ACF700A79CF4 /* CityExplorerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35435FFB2817ACF700A79CF4 /* CityExplorerUITestsLaunchTests.swift */; };
+		357D8BA6281F6651002776EB /* Trips.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 357D8BA4281F6651002776EB /* Trips.xcdatamodeld */; };
+		357D8BA8281F66E8002776EB /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357D8BA7281F66E8002776EB /* DataController.swift */; };
 		359ABC4B2818F06F00C7FFFE /* MapDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359ABC4A2818F06F00C7FFFE /* MapDefaults.swift */; };
-		359ABC4E281B5D8900C7FFFE /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359ABC4D281B5D8900C7FFFE /* MapService.swift */; };
+		359ABC4E281B5D8900C7FFFE /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359ABC4D281B5D8900C7FFFE /* LocationService.swift */; };
 		359ABC54281B617200C7FFFE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359ABC53281B617200C7FFFE /* MapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,8 +49,10 @@
 		35435FF52817ACF700A79CF4 /* CityExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityExplorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35435FF92817ACF700A79CF4 /* CityExplorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityExplorerUITests.swift; sourceTree = "<group>"; };
 		35435FFB2817ACF700A79CF4 /* CityExplorerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityExplorerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		357D8BA5281F6651002776EB /* LatLonPoints.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LatLonPoints.xcdatamodel; sourceTree = "<group>"; };
+		357D8BA7281F66E8002776EB /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		359ABC4A2818F06F00C7FFFE /* MapDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDefaults.swift; sourceTree = "<group>"; };
-		359ABC4D281B5D8900C7FFFE /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		359ABC4D281B5D8900C7FFFE /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		359ABC53281B617200C7FFFE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +149,14 @@
 			path = CityExplorerUITests;
 			sourceTree = "<group>";
 		};
+		357D8BA3281F662C002776EB /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				357D8BA4281F6651002776EB /* Trips.xcdatamodeld */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
 		359ABC492818F05E00C7FFFE /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,7 +168,7 @@
 		359ABC4C281B5D6600C7FFFE /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				359ABC4D281B5D8900C7FFFE /* MapService.swift */,
+				359ABC4D281B5D8900C7FFFE /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -164,6 +176,8 @@
 		35DE1CD9281DFE2A00DD2CBD /* Databases */ = {
 			isa = PBXGroup;
 			children = (
+				357D8BA3281F662C002776EB /* DataModels */,
+				357D8BA7281F66E8002776EB /* DataController.swift */,
 			);
 			path = Databases;
 			sourceTree = "<group>";
@@ -298,8 +312,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				359ABC4E281B5D8900C7FFFE /* MapService.swift in Sources */,
+				357D8BA8281F66E8002776EB /* DataController.swift in Sources */,
+				359ABC4E281B5D8900C7FFFE /* LocationService.swift in Sources */,
 				35435FE12817ACF300A79CF4 /* HomeView.swift in Sources */,
+				357D8BA6281F6651002776EB /* Trips.xcdatamodeld in Sources */,
 				359ABC54281B617200C7FFFE /* MapView.swift in Sources */,
 				35435FDF2817ACF300A79CF4 /* CityExplorerApp.swift in Sources */,
 				359ABC4B2818F06F00C7FFFE /* MapDefaults.swift in Sources */,
@@ -629,6 +645,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		357D8BA4281F6651002776EB /* Trips.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				357D8BA5281F6651002776EB /* LatLonPoints.xcdatamodel */,
+			);
+			currentVersion = 357D8BA5281F6651002776EB /* LatLonPoints.xcdatamodel */;
+			path = Trips.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 35435FD32817ACF300A79CF4 /* Project object */;
 }

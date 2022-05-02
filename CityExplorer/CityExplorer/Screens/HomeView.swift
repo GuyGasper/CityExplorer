@@ -15,11 +15,12 @@ struct HomeView: View {
                                         longitude: MapDefaults.longitude),
         span: MKCoordinateSpan(latitudeDelta: CLLocationDegrees(MapDefaults.zoom),
                                 longitudeDelta: CLLocationDegrees(MapDefaults.zoom)))
-
     @State private var lineCoordinates = [
         CLLocationCoordinate2D(latitude: 41.870759, longitude: -87.630696),
         CLLocationCoordinate2D(latitude: 41.872245, longitude: -87.630632)
     ];
+    // Fetch request to grab trip data from Core Data
+    @FetchRequest(sortDescriptors: []) var trips: FetchedResults<Trips>
     
     init() {
         let coloredAppearance = UINavigationBarAppearance()
