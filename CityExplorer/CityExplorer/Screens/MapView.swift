@@ -16,6 +16,8 @@ struct MapView: UIViewRepresentable {
         let mapView = MKMapView()
         mapView.delegate = context.coordinator
         mapView.region = region
+        mapView.mapType = .mutedStandard
+        mapView.pointOfInterestFilter = .excludingAll
 
         let polyline = MKPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)
         mapView.addOverlay(polyline)
@@ -41,7 +43,7 @@ class Coordinator: NSObject, MKMapViewDelegate {
         if let routePolyline = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(polyline: routePolyline)
             renderer.strokeColor = UIColor.systemPurple
-            renderer.lineWidth = 4
+            renderer.lineWidth = 5
             return renderer
         }
         return MKOverlayRenderer()

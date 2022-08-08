@@ -20,7 +20,7 @@ struct HomeView: View {
         CLLocationCoordinate2D(latitude: 41.872245, longitude: -87.630632)
     ];
     // Fetch request to grab trip data from Core Data
-    @FetchRequest(sortDescriptors: []) var trips: FetchedResults<Trips>
+//    @FetchRequest(sortDescriptors: []) var trips: FetchedResults<Trips>
     
     init() {
         let coloredAppearance = UINavigationBarAppearance()
