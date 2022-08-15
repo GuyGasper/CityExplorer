@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20G80" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E230" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="LatLonPoint" representedClassName="LatLonPoint" syncable="YES" codeGenerationType="class">
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="ownerTrip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="latLonPoints" inverseEntity="Trip"/>
+        <relationship name="ownerTrip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip"/>
     </entity>
     <entity name="Trip" representedClassName="Trip" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="latLonPoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LatLonPoint" inverseName="ownerTrip" inverseEntity="LatLonPoint"/>
+        <relationship name="latLonPoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LatLonPoint"/>
     </entity>
     <elements>
-        <element name="Trip" positionX="-80.15814208984375" positionY="-17.15084838867188" width="128" height="73"/>
-        <element name="LatLonPoint" positionX="199.9933471679688" positionY="131.3341064453125" width="128" height="88"/>
+        <element name="LatLonPoint" positionX="199.9933471679688" positionY="131.3341064453125" width="128" height="74"/>
+        <element name="Trip" positionX="-80.15814208984375" positionY="-17.15084838867188" width="128" height="59"/>
     </elements>
 </model>
